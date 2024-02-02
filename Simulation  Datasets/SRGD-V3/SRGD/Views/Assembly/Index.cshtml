@@ -1,0 +1,99 @@
+﻿@model SRGD.Models.Experiments
+@using SRGD.Models
+
+<div id="logout" style="text-align:right;"> <a href="@Url.Action("Index", "Home")"><h2>Logout</h2></a></div>
+<h1>Assembly Experiment </h1>
+<form method="post" id="Exp" enctype="multipart/form-data">
+    <table id="load" style="visibility:collapse;border-collapse:collapse; margin-left:auto;margin-right:auto;">
+        <tr>
+            <td>
+                <img style="width:1000px;height:300px;" src="../images/Loading.gif" />
+            </td>
+        </tr>
+    </table>
+    <table border="1"  cellpadding="10">
+        <tr>
+            <td hidden><input name="ExperimentFolderPath" value="@Model.ExperimentFolderPath" /></td>
+        </tr>
+
+        <tr>
+
+            <td> Welcome:</td>
+            <td><input name="Username" value="@Model.Username" readonly /></td>
+        </tr>
+        <tr>
+            <td>ExperimentID :</td>
+            <td><input name="ExperimentID" value="@Model.ExperimentID" readonly /></td>
+        </tr>
+        <tr>
+            <td>Species :</td>
+            <td><input name="Species" value="@Model.Species" readonly /></td>
+        </tr>
+        <tr>
+            <td>Experiment Date :</td>
+            <td><input name="ExperimentDate" value="@Model.ExperimentDate.ToShortDateString()" readonly /></td>
+        </tr>
+
+        <tr>
+            <td>Experiment Time :</td>
+            <td><input name="ExperimentTime" value="@Model.ExperimentTime.ToShortTimeString()" readonly /></td>
+        </tr>
+        <tr>
+            <td>Select FASTA File</td>
+            <td><input type="file" name="Reads" multiple value="@Model.Reads" /></td>
+        </tr>
+        <tr>
+            <td>Select Reference Genome File</td>
+            <td><input type="file" name="Reference" value="@Model.Reference" /></td>
+        </tr>
+        <tr>
+            <td>Select Reads Type</td>
+            <td>
+                <select name="ReadsType">
+                    @for (int i = 0; i < Enum.
+GetNames(typeof(ReadsType)).Length; i++)
+                    {
+                        <option value=@ReadsType.GetName(typeof(ReadsType)
+                             ,
+                     i)>
+                            @ReadsType.GetName(typeof(ReadsType), i)
+                        </option>
+                    }
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Number of Read’s Partitions</td>
+            <td>
+                <select name="PN">
+                    @for (int i = 1; i <= 30; i++)
+                    {
+                        <option value=@i>@i</option>
+                    }
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Enter Allowed Alignment Mismatch:</td>
+            <td><input name="Similarity"  value="0"/></td>
+        </tr>
+
+        <tr>
+            <td colspan="2" style="text-align: right">
+                <button type="submit" onclick="myFunction()" style="width:100px;height:40px; font-size:large; font:bold;" asp-action="Upload" asp-controller="Assembly">Run</button>
+            </td>
+        </tr>
+    </table>
+
+</form>
+<script>
+
+    function myFunction() {
+        document.getElementById("Exp").style.visibility = "hidden";
+        document.getElementById("logout").style.visibility = "hidden";
+        document.getElementById("load").style.visibility = "visible";
+    }
+</script>
+

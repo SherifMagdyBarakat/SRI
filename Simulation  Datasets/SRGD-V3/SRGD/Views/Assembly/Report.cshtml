@@ -1,0 +1,284 @@
+﻿@model SRGD.Models.Reports
+@using System.Data;
+
+<html>
+<head>
+   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btnSubmit").click(function () {
+                $("input[name='GridHtml1']").val($("#Grid1").html());
+                $("input[name='GridHtml2']").val($("#Grid2").html());
+            });
+        });
+
+    </script>
+</head>
+<body id="body">
+      
+        <div id="Grid1" style="color:black">
+            <h1>Assembly Report</h1>
+            <br>
+            <br>
+            <h2 style="text-align:left">Experiment Details</h2>
+            <table border="1" cellpadding="10">
+
+                <tr>
+                    <td>ExperimentID:</td>
+                    <td>@Model.Species</td>
+                </tr>
+                <tr>
+                    <td>Sequencing Coverage:</td>
+                    <td>@Model.Coverage</td>
+                </tr>
+                <tr>
+                    <td>Number of Partitions:</td>
+                    <td>@Model.PN</td>
+                </tr>
+                <tr>
+                    <td>Allowed Mismatch Count in (Base):</td>
+                    <td>@Model.AllowedMismatchCount</td>
+                </tr>
+                <tr>
+                    <td>Length of Sliding Window: </td>
+                    <td>@Model.PL</td>
+                </tr>
+            </table>
+            <br>
+            <h2 style="text-align:left">Reads Dataset Details</h2>
+            <table border="1" cellpadding="10">
+                <tr>
+                    <td>Total Reads Count:</td>
+                    <td>@Model.TotalReadCount</td>
+                </tr>
+                <tr>
+                    <td>Total Dataset Size in (Base):</td>
+                    <td>@Model.TotalDatasetSize</td>
+                </tr>
+                <tr>
+                    <td>Valid Read Count:</td>
+                    <td>@Model.ValidReadCount</td>
+                </tr>
+                <tr>
+                    <td>Rejected Read Count:</td>
+                    <td>@Model.RejectedReadCount</td>
+                </tr>
+                <tr>
+                    <td>Maximum Read Length:</td>
+                    <td>@Model.maxL</td>
+                </tr>
+                <tr>
+                    <td>Minimum Read Length:</td>
+                    <td>@Model.minL</td>
+                </tr>
+
+            </table>
+
+            <br>
+            <h2 style="text-align:left">Reference Genome Details</h2>
+            <table border="1" cellpadding="10">
+                <tr>
+                    <td>Length of Reference Genome (Base):</td>
+                    <td>@Model.ReferenceLength</td>
+                </tr>
+                <tr>
+                    <td>Number of K-mers:</td>
+                    <td>@Model.KmerCount</td>
+                </tr>
+                <tr>
+                    <td>Length of K-mer </td>
+                    <td>@Model.KmerLength</td>
+                </tr>
+            </table>
+            <br>
+            <h2 style="text-align:left">Assembly Details</h2>
+            <table border="1" cellpadding="10">
+                <tr>
+                    <td>Number of Contigs:</td>
+                    <td>@Model.ContigCount</td>
+                </tr>
+                <tr>
+                    <td>Contig N50:</td>
+                    <td>@Model.N50C</td>
+                </tr>
+                <tr>
+                    <td>Contig N90:</td>
+                    <td>@Model.N90C</td>
+                </tr>
+                <tr>
+                    <td>Number of Scaffold</td>
+                    <td> @Model.ScaffoldCount </td></ tr >
+                <tr>
+                    <td>Scaffold N50:</td>
+                    <td> @Model.N50S </td></ tr >
+                <tr>
+                    <td>Scaffold N90:</td>
+                    <td> @Model.N90S </td></ tr >
+                <tr>
+                    <td>Mis-assembly Count:</td>
+                    <td>@Model.MisAssemblyCount</td>
+                </tr>
+                <tr>
+                    <td>TotalAssembly Size:</td>
+                    <td> @Model.TotalAssemblySize </td></ tr >
+                </tr>
+            </table>
+            <br>
+            <h2 style="text-align:left">Repeat Details</h2>
+            <table border="1" cellpadding="10">
+                <tr>
+                    <td>Total Reads Count(Non-Repeat) :</td>
+                    <td>@Model.TotalNonRepeatCount</td>
+                </tr>
+                <tr>
+                    <td>Total Reads Count(Repeat):</td>
+                    <td>@Model.TotalRepeatCount</td>
+                </tr>
+                <tr>
+                    <td>Retetitve Read Count based on (Partitions Identifier):</td>
+                    <td>@Model.RepeatCountPartitions</td>
+                </tr>
+                <tr>
+                    <td>Retetitve Read Count (Entire Read Frequency Identifier):</td>
+                    <td>@Model.RepeatCountFR</td>
+                </tr>
+                <tr>
+                    <td>Retetitve Read Count (Contained Read Frequency Identifier):</td>
+                    <td>@Model.RepeatCountCR</td>
+                </tr>
+
+                <tr>
+                    <td>Total Repetitive Sequences Count</td>
+                    <td>@Model.CountRepeat</td>
+                </tr>
+                <tr>
+                    <td>Total Unique Repetitive Sequences Count</td>
+                    <td>@Model.CountUniqueRepeat</td>
+                </tr>
+                <tr>
+                    <td>Total Repeat Size (Base)</td>
+                    <td>@Model.RepeatSize</td>
+                </tr>
+            </table>
+            <table border="1" style="table-layout: fixed; width: 100%">
+
+                <thead>
+                    <tr>
+                        @foreach (DataColumn col in Model.RepeatAnnotation.Columns)
+                        {
+                            <th>@col.ColumnName</th>
+                        }
+                        <th>Positions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (DataRow row in Model.RepeatAnnotation.Rows)
+                    {
+                    <tr>
+                        @foreach (DataColumn col in Model.RepeatAnnotation.Columns)
+                        {
+                            <td style="word-wrap: break-word">@row[col.ColumnName]</td>
+                        }
+                   
+                      
+                        <td>@await Component.InvokeAsync("Positions", new { ST = @row["STARTING"].ToString(), EN = @row["ENDING"].ToString(), RS = @row["REPETITIVE SEQUENCES"].ToString(), RAT = "REPEAT_ANNOTATION" + @Model.ExperimentID.ToString() })</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+
+            <br>
+            <h2 style="text-align:left">SRGD Performance Metrics</h2>
+            <table border="1" cellpadding="10">
+
+                <tr>
+                    <td>Initial Reads Count:</td>
+                    <td>@Model.TotalReadCount</td>
+                </tr>
+
+                <tr>
+                    <td>Reads Count after Removing Duplication:</td>
+                    <td>@Model.ReadCountAfterDuplication</td>
+                </tr>
+
+                <tr>
+                    <td>Reads Count after Overlapping:</td>
+                    <td>@Model.ReadCountAfterOverlapping</td>
+                </tr>
+                <tr>
+                    <td>Initial Dataset Size in (Base):</td>
+                    <td>@Model.TotalDatasetSize</td>
+                </tr>
+                <tr>
+                    <td>Dataset Sizet after Removing Duplication:</td>
+                    <td>@Model.DatasetSizetAfterDuplication</td>
+                </tr>
+                <tr>
+                    <td>Dataset Size after Overlapping:</td>
+                    <td>@Model.DatasetSizeAfterOverlapping</td>
+                </tr>
+
+            </table>
+        </div>
+          <div id="Grid2" style="color:black">
+            <h3 style="text-align:left">Overlapping Metrics</h3>
+            <table border="1" cellpadding="10">
+                <tr>
+                    <td>Repeat Identification Time:</td>
+                    <td>@Model.RepeatIdentificationTime</td>
+                </tr>
+                <tr>
+                    <td>Overlapping Time:</td>
+                    <td>@Model.OverlappingTime</td>
+                </tr>
+                <tr>
+                    <td>Reads Alignment Time:</td>
+                    <td>@Model.AlignmentTime</td>
+                </tr>
+                <tr>
+                    <td>Total Hybrid Assembly Time:</td>
+                    <td>@Model.TotalAssemblyTime</td>
+                </tr>
+                <tr>
+                    <td>Repeat Annotation Time:</td>
+                    <td>@Model.RepeatAnnotationTime</td>
+                </tr>
+            </table>
+
+            <table border="1">
+                <thead>
+                    <tr>
+                        @foreach (DataColumn col in Model.OverlappingMetrics.Columns)
+                        {
+                            <th>@col.ColumnName</th>
+                        }
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (DataRow row in Model.OverlappingMetrics.Rows)
+                    {
+                        <tr>
+                            @foreach (DataColumn col in Model.OverlappingMetrics.Columns)
+                            {
+                                <td>@row[col.ColumnName]</td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+        @using (Html.BeginForm("Export", "Assembly", FormMethod.Post))
+        {
+            <input type="hidden" name="GridHtml1" />
+            <input type="hidden" name="GridHtml2" />
+            <input type="hidden" name="path" value="@Model.ExperimentFolderPath" />
+            <input type="hidden" name="expID" value="@Model.ExperimentID.ToString()" />
+            <input style=" border:outset;    border-bottom-color:black;    border-bottom-width:8px;    width:250px;    height:50px;    text-align:center;   font-size:20px;" type="submit" id="btnSubmit" value="Submit to Download" />
+        }
+</body>
+</html>

@@ -1,0 +1,8 @@
+﻿@model string 
+    <h1>*****Experiment is Over*****</h1>
+    <h1>*****Thank you for Using SRGD*****</h1>
+    <form asp-controller="Assembly" asp-action="DownloadExperiment" method="post">
+        <input hidden name="zipPath" value="@Model.ToString()" />
+        <div><input type="button" value="Logout" onclick="location.href='@Url.Action("Index", "Home")'" /></div>
+        <div><input type="submit" style=" border:outset;    border-bottom-color:black;    border-bottom-width:8px;    width:250px;    height:50px;    text-align:center;   font-size:20px;" value="Download" /></div>
+    </form>

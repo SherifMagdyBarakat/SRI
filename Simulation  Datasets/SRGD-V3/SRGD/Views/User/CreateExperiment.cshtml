@@ -1,0 +1,31 @@
+﻿@model SRGD.Models.Experiments
+@using SRGD.Models
+
+
+<div style="text-align:right;"> <a href="@Url.Action("Index", "Home")"><h2>Logout</h2></a></div>
+<h1> Create New Experiment</h1>
+
+
+
+<form asp-controller="User" asp-action="CreateExperiment" method="post">
+
+    <table border="1" cellpadding="10">
+        <tr>
+
+            <td> Species :</td>
+            <td> <input name="Species" />@Html.ValidationMessageFor(model => Model.Species, "", new { @class = "error" }) </td>
+
+        </tr>
+
+        <tr>
+            <td hidden> <input name="Username" value="@Model.Username" /> </td>
+            <td hidden> <input name="ExperimentFolderPath" value="@Model.ExperimentFolderPath" /> </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" style="text-align: right">
+                <button type="submit" > Create New Experiment</button>
+            </td>
+        </tr>
+    </table>
+</form>

@@ -1,0 +1,28 @@
+﻿@model SRGD.ViewModels.LoginViewModel
+
+<h1>User Login</h1>
+<br>
+<h3 class="error" style="text-align:center">@ViewData["error"]</h3>
+<br>
+<form asp-controller="Home" asp-action="Login" method="post">
+
+    <table border="1" cellpadding="10">
+
+        <tr>
+            <td> Username :</td>
+            <td><input name="Username" />@Html.ValidationMessageFor(model => Model.Username, "", new { @class = "error" })</td>
+        </tr>
+        <tr>
+            <td>Password :</td>
+            <td><input name="Password" type="password" />@Html.ValidationMessageFor(model => Model.Password, "", new { @class = "error" })</td>
+        </tr>
+
+        <tr>
+            <td colspan="2" style="text-align:right">
+                <button type="submit">Login</button>
+
+            </td>
+        </tr>
+    </table>
+
+</form>

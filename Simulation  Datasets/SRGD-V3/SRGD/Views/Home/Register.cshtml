@@ -1,0 +1,56 @@
+﻿@model SRGD.Models.Users
+
+<style type="text/css">
+    body {
+        background-image: url('../images/2.jpg');
+        margin: 0;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center center;
+    }
+    td {
+        color: #fff; font:bold
+    }
+    h1 {
+        color: #fff;
+        font: bold
+    }
+</style>
+
+
+
+
+
+<h1>User Registry Form</h1>
+<form asp-controller="Home" asp-action="Register" method="post">
+    <table border="1" cellpadding="10">
+        <tr>
+            <td> Username :</td>
+            <td><input name="Username" />@Html.ValidationMessageFor(model => Model.Username, "", new { @class = "error" })</td>
+        </tr>
+        <tr>
+            <td>Password :</td>
+            <td><input name="Password" type="password" />@Html.ValidationMessageFor(model => Model.Password, "", new { @class = "error" })</td>
+        </tr>
+
+        <tr>
+            <td>Confirm Password :</td>
+            <td><input name="ConfirmPassword" type="password" />@Html.ValidationMessageFor(model => Model.ConfirmPassword, "", new { @class = "error" })</td>
+        </tr>
+        <tr>
+            <td>Email :</td>
+            <td><input name="Email" />@Html.ValidationMessageFor(model => Model.Email, "", new { @class = "error" })</td>
+        </tr>
+        <tr>
+            <td>Job :</td>
+            <td><input name="Job" />@Html.ValidationMessageFor(model => Model.Job, "", new { @class = "error" })</td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <button type="submit">Register</button>
+            </td>
+        </tr>
+    </table>
+</form>

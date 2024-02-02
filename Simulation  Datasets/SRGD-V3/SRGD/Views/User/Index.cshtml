@@ -1,0 +1,12 @@
+﻿
+@model SRGD.Models.Users
+
+<div style="text-align:right;"> <a href="@Url.Action("Index", "Home")"><h2>Logout</h2></a></div>
+<h2>Welcome  @Model.Username</h2>
+<h1>User Page</h1>
+<h1>///////////////////////////////////////////////////////////////////////////</h1>
+<body>
+    <input type="button" value="Create New Experiment "
+           onclick="location.href='@Url.Action("CreateExperiment","User",new { Username= @Model.Username,Path=@Model.FolderPath})'" />
+
+</body>

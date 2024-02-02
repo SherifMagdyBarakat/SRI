@@ -1,0 +1,24 @@
+﻿@model DataTable
+@using System.Data;
+    <table border="1" style="table-layout: fixed; width: 100%">
+
+        <thead>
+            <tr>
+                @foreach (DataColumn col in Model.Columns)
+                {
+                    <th style="  font:bold;word-wrap:break-word">@col.ColumnName</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (DataRow row in Model.Rows)
+            {
+                <tr>
+                    @foreach (DataColumn col in Model.Columns)
+                    {
+                        <td style=" word-wrap:break-word">@row[col.ColumnName]</td>
+                    }
+                 </tr>
+            }
+        </tbody>
+    </table>

@@ -1,0 +1,25 @@
+C:\Users\Sherif\Desktop\Genome Reader\Genome Reader\obj\Debug\netcoreapp2.1\Genome Reader.csprojAssemblyReference.cache
+C:\Users\Sherif\Desktop\Genome Reader\Genome Reader\obj\Debug\netcoreapp2.1\Genome Reader.AssemblyInfoInputs.cache
+C:\Users\Sherif\Desktop\Genome Reader\Genome Reader\obj\Debug\netcoreapp2.1\Genome Reader.AssemblyInfo.cs
+C:\Users\Sherif\Desktop\Genome Reader\Genome Reader\obj\Debug\netcoreapp2.1\Genome Reader.csproj.CoreCompileInputs.cache
+C:\Users\Sherif\Desktop\Genome Reader\Genome Reader\obj\Debug\netcoreapp2.1\Genome Reader.RazorAssemblyInfo.cache
+C:\Users\Sherif\Desktop\Genome Reader\Genome Reader\obj\Debug\netcoreapp2.1\Genome Reader.RazorAssemblyInfo.cs
+C:\Users\Sherif\Desktop\Genome Reader\Genome Reader\bin\Debug\netcoreapp2.1\Genome Reader.deps.json
+C:\Users\Sherif\Desktop\Genome Reader\Genome Reader\bin\Debug\netcoreapp2.1\Genome Reader.runtimeconfig.json
+C:\Users\Sherif\Desktop\Genome Reader\Genome Reader\bin\Debug\netcoreapp2.1\Genome Reader.runtimeconfig.dev.json
+C:\Users\Sherif\Desktop\Genome Reader\Genome Reader\bin\Debug\netcoreapp2.1\Genome Reader.dll
+C:\Users\Sherif\Desktop\Genome Reader\Genome Reader\bin\Debug\netcoreapp2.1\Genome Reader.pdb
+C:\Users\Sherif\Desktop\Genome Reader\Genome Reader\bin\Debug\netcoreapp2.1\Genome Reader.Views.dll
+C:\Users\Sherif\Desktop\Genome Reader\Genome Reader\bin\Debug\netcoreapp2.1\Genome Reader.Views.pdb
+C:\Users\Sherif\Desktop\Genome Reader\Genome Reader\obj\Debug\netcoreapp2.1\Genome Reader.TagHelpers.input.cache
+C:\Users\Sherif\Desktop\Genome Reader\Genome Reader\obj\Debug\netcoreapp2.1\Genome Reader.TagHelpers.output.cache
+C:\Users\Sherif\Desktop\Genome Reader\Genome Reader\obj\Debug\netcoreapp2.1\Genome Reader.RazorCoreGenerate.cache
+C:\Users\Sherif\Desktop\Genome Reader\Genome Reader\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\Sherif\Desktop\Genome Reader\Genome Reader\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\Sherif\Desktop\Genome Reader\Genome Reader\obj\Debug\netcoreapp2.1\Genome Reader.RazorTargetAssemblyInfo.cache
+C:\Users\Sherif\Desktop\Genome Reader\Genome Reader\obj\Debug\netcoreapp2.1\Genome Reader.RazorTargetAssemblyInfo.cs
+C:\Users\Sherif\Desktop\Genome Reader\Genome Reader\obj\Debug\netcoreapp2.1\Genome Reader.Views.pdb
+C:\Users\Sherif\Desktop\Genome Reader\Genome Reader\obj\Debug\netcoreapp2.1\Genome Reader.dll
+C:\Users\Sherif\Desktop\Genome Reader\Genome Reader\obj\Debug\netcoreapp2.1\Genome Reader.pdb
+C:\Users\Sherif\Desktop\Genome Reader\Genome Reader\obj\Debug\netcoreapp2.1\Genome Reader.genruntimeconfig.cache
+C:\Users\Sherif\Desktop\Genome Reader\Genome Reader\obj\Debug\netcoreapp2.1\Genome Reader.csproj.CopyComplete
